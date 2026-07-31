@@ -3,7 +3,7 @@ import menuItems from "./menuItems";
 
 function Sidebar() {
     return (
-        <aside className=" hidden lg:flex w-64 xl:w-72 bg-gray-900 text-white min-h-screen flex-col shrink-0">
+        <aside className="w-72 h-screen bg-gray-900 text-white flex flex-col">
 
             {/* Logo */}
             <div className="px-8 py-8 border-b border-gray-800">
