@@ -1,3 +1,4 @@
+import { FiEye, FiTrash2 } from "react-icons/fi";
 function HistoryCard({ item }) {
 
     const featureNames = {
@@ -23,11 +24,16 @@ function HistoryCard({ item }) {
             <p className="text-gray-600 mt-2 line-clamp-3">
                 {item.prompt}
             </p>
-            <div className="mt-6 flex gap-3">
-                <button className="px-4 py-2 rounded-lg bg-purple-600 text-white">
+            <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                <button
+                    className="w-full sm:w-auto px-4 py-2 rounded-lg bg-purple-600 text-white hover:bg-purple-700 transition"
+                >
                     View
                 </button>
-                <button className="px-4 py-2 rounded-lg border">
+
+                <button
+                    className="w-full sm:w-auto px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-100 transition"
+                >
                     Delete
                 </button>
             </div>
