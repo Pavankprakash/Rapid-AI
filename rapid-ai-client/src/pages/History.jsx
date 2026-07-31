@@ -2,7 +2,7 @@ import { useAuth } from "@clerk/clerk-react";
 import { useEffect, useState } from "react";
 import api from "../services/api";
 import { useDbUser } from "../context/AuthContext";
-import HistoryList from "../components/history/HistoryList";
+import HistoryList from "../components/History/HistoryList";
 import useApi from "../hooks/useApi";
 
 function History() {
