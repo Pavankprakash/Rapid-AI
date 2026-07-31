@@ -86,16 +86,20 @@ function Navbar() {
             </div>
             {/* Mobile Menu */}
             {isOpen && (
-                <div className={`lg:hidden overflow-hidden transition-all duration-300 ${isOpen ? "max-h-96 py-6" : "max-h-0"}`}>
+                <div className={`lg:hidden overflow-hidden transition-all duration-300 ${
+                    isOpen ? "max-h-96 py-6" : "max-h-0"}`}>
 
-                    <a href="#">Features</a>
-                    <a href="#">About</a>
-                    <Link
+                    <div className="flex flex-col gap-5 px-6">
+                        <a href="#">Features</a>
+                        <a href="#">About</a>
+
+                        <Link
                         to="/dashboard"
                         className=" relative font-medium text-gray-600 hover:text-purple-600 transition after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-purple-600 after:transition-all hover:after:w-full"
                     >
                         Dashboard
                     </Link>
+                    </div>
 
                     <SignedOut>
                         <SignInButton mode="modal">
