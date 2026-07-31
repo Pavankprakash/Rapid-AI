@@ -11,7 +11,15 @@ import historyRoutes from "./routes/history.routes.js";
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(
+    cors({
+        origin: [
+            "http://localhost:5173",
+            "https://YOUR-VERCEL-APP.vercel.app",
+        ],
+        credentials: true,
+    })
+);
 app.use(express.json());
 app.use(clerkMiddleware());   // <-- MUST come before protected routes
 app.use("/api/users", userRoutes);

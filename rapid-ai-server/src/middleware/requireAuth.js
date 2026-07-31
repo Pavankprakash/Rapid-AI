@@ -10,7 +10,6 @@ const requireAuth = (req, res, next) => {
             message: "Unauthorized"
         });
     }
-
     req.clerkUserId = userId;
 
     next();
