@@ -17,10 +17,8 @@ function Hero() {
                     </h1>
 
                     <p className="mt-5 max-w-2xl text-purple-100 leading-8">
-
                         Create articles, SEO titles, resume reviews and
                         much more using Rapid AI.
-
                     </p>
 
                     <div className="flex gap-4 mt-8">

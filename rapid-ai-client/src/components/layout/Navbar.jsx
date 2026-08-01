@@ -27,12 +27,11 @@ function Navbar() {
                 </div>
                 { /*Desktop Menu */}
                 <div className="hidden lg:flex items-center gap-8">
-
                     <a href="#" className="hover:text-purple-600">
                         Features
                     </a>
                     <a href="#" className="hover:text-purple-600">
-                        Pricing
+                        About
                     </a>
                     <Link
                         to="/dashboard"
