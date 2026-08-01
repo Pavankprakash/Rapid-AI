@@ -15,7 +15,7 @@ app.use(
     cors({
         origin: [
             "http://localhost:5173",
-            "https://YOUR-VERCEL-APP.vercel.app",
+            process.env.FRONTEND_URL,
         ],
         credentials: true,
     })
@@ -36,6 +36,4 @@ app.get("/", (req, res) => {
     message: "Welcome to Rapid AI API "
   });
 });
-
-
 export default app;
