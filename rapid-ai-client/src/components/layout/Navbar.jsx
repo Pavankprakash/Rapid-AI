@@ -85,42 +85,54 @@ function Navbar() {
                 </button>
             </div>
             {/* Mobile Menu */}
+
             {isOpen && (
-                <div className={`lg:hidden overflow-hidden transition-all duration-300 ${
-                    isOpen ? "max-h-96 py-6" : "max-h-0"}`}>
-
-                    <div className="flex flex-col gap-5 px-6">
-                        <a href="#">Features</a>
-                        <a href="#">About</a>
-
+                <div className="lg:hidden border-t bg-white">
+                    <div className="flex flex-col gap-5 px-6 py-6">
+                        <a href="#" className="hover:text-purple-600">
+                            Features
+                        </a>
+                        <a href="#" className="hover:text-purple-600">
+                            About
+                        </a>
                         <Link
-                        to="/dashboard"
-                        className=" relative font-medium text-gray-600 hover:text-purple-600 transition after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-purple-600 after:transition-all hover:after:w-full"
-                    >
-                        Dashboard
-                    </Link>
+                            to="/dashboard"
+                            onClick={() => setIsOpen(false)}
+                            className="rounded-lg px-4 py-3 hover:bg-purple-50 hover:text-purple-600 transition"
+                        >
+                            Dashboard
+                        </Link>
+                        <hr />
+                        <SignedOut>
+                            <SignInButton mode="modal">
+                                <button className="w-full border rounded-xl py-2">
+                                    Login
+                                </button>
+                            </SignInButton>
+
+                            <SignUpButton mode="modal">
+                                <button className="w-full rounded-xl py-2 bg-purple-600 text-white">
+                                    Get Started
+                                </button>
+                            </SignUpButton>
+                        </SignedOut>
+                        <SignedIn>
+                            <div className="flex items-center gap-3">
+                                <UserButton afterSignOutUrl="/" />
+                                <div>
+                                    <p className="font-semibold">
+                                        Dashboard
+                                    </p>
+
+                                    <p className="text-sm text-gray-500">
+                                        Welcome back
+                                    </p>
+                                </div>
+                            </div>
+                        </SignedIn>
                     </div>
-
-                    <SignedOut>
-                        <SignInButton mode="modal">
-                            <button className="px-4 py-2 rounded-xl border border-gray-300 hover:border-purple-500 hover:text-purple-600 transition">
-                                Login
-                            </button>
-                        </SignInButton>
-
-                        <SignUpButton mode="modal">
-                            <button className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold shadow-lg hover:scale-105 transition">
-                                Get Started
-                            </button>
-                        </SignUpButton>
-                    </SignedOut>
-
-                    <SignedIn>
-                        <UserButton afterSignOutUrl="/" />
-                    </SignedIn>
                 </div>
             )}
-
         </nav>
     );
 }
