@@ -35,8 +35,7 @@ function Navbar() {
                     </a>
                     <Link
                         to="/dashboard"
-                        className="hover:text-purple-600"
-                    >
+                        className="hover:text-purple-600">
                         Dashboard
                     </Link>
 
@@ -83,41 +82,61 @@ function Navbar() {
                     {isOpen ? <FiX size={28} /> : <FiMenu size={28} />}
                 </button>
             </div>
-            {/* Mobile Menu */}
 
+            {/* Mobile Menu */}
             {isOpen && (
                 <div className="lg:hidden border-t bg-white">
-                    <div className="flex flex-col gap-5 px-6 py-6">
-                        <a href="#" className="hover:text-purple-600">
+                    <div className="flex flex-col px-6 py-6">
+
+                        {/* Features */}
+                        <a
+                            href="#features"
+                            onClick={() => setIsOpen(false)}
+                            className="px-4 py-3 rounded-lg hover:bg-purple-50 hover:text-purple-600 transition"
+                        >
                             Features
                         </a>
-                        <a href="#" className="hover:text-purple-600">
+
+                        {/* About */}
+                        <a
+                            href="#about"
+                            onClick={() => setIsOpen(false)}
+                            className="px-4 py-3 rounded-lg hover:bg-purple-50 hover:text-purple-600 transition"
+                        >
                             About
                         </a>
+
+                        {/* Dashboard */}
                         <Link
                             to="/dashboard"
                             onClick={() => setIsOpen(false)}
-                            className="rounded-lg px-4 py-3 hover:bg-purple-50 hover:text-purple-600 transition"
+                            className="px-4 py-3 rounded-lg hover:bg-purple-50 hover:text-purple-600 transition"
                         >
                             Dashboard
                         </Link>
-                        <hr />
+
+                        <hr className="my-3" />
+
+                        {/* Authentication */}
                         <SignedOut>
                             <SignInButton mode="modal">
-                                <button className="w-full border rounded-xl py-2">
+                                <button className="w-full border rounded-xl py-3">
                                     Login
                                 </button>
                             </SignInButton>
 
                             <SignUpButton mode="modal">
-                                <button className="w-full rounded-xl py-2 bg-purple-600 text-white">
+                                <button className="w-full rounded-xl py-3 bg-purple-600 text-white mt-3">
                                     Get Started
                                 </button>
                             </SignUpButton>
                         </SignedOut>
+
+                        {/* Logged In */}
                         <SignedIn>
-                            <div className="flex items-center gap-3">
+                            <div className="flex items-center gap-3 px-4 py-3">
                                 <UserButton afterSignOutUrl="/" />
+
                                 <div>
                                     <p className="font-semibold">
                                         Dashboard
@@ -129,6 +148,7 @@ function Navbar() {
                                 </div>
                             </div>
                         </SignedIn>
+
                     </div>
                 </div>
             )}

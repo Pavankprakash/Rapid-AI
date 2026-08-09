@@ -7,31 +7,23 @@ function ResumeForm({ setReview, setLoading, loading }) {
     const { authPost } = useApi();
 
     async function handleReview() {
-
         if (!file) {
             alert("Please choose a PDF.");
             return;
         }
         console.log(file);
-
         try {
             setLoading(true);
             const formData = new FormData();
 
             formData.append("resume", file);
-
             const response = await authPost("/ai/resume", formData);
             setReview(response.data.review);
-
         } catch (error) {
-
             console.error(error);
             setReview("Something went wrong.");
-
         } finally {
-
             setLoading(false);
-
         }
     }
     return (
