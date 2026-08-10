@@ -12,7 +12,6 @@ function ArticleForm({ setArticle, setLoading, loading }) {
     const { authPost } = useApi();
 
     async function handleGenerate() {
-
         if (!topic.trim()) {
             alert("Please enter a topic.");
             return;
