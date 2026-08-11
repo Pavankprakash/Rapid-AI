@@ -4,6 +4,14 @@ const userService = {};
 
 userService.getOrCreateUser = async ({ clerkId, email }) => {
 
+    if(!clerkId) {
+        throw new Error("Clerk user Id id required");
+    }
+
+    if(!email) {
+        throw new Error("User email is required");
+    }
+
     const existingUser = await pool.query(
         `
         SELECT *

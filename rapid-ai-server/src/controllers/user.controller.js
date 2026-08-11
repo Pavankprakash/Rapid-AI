@@ -9,7 +9,16 @@ userController.syncUser = async (req, res) => {
             req.clerkUserId
         );
 
-        const email = clerkUser.emailAddresses?.[0]?.emailAddress;
+        const primaryEmailId = clerkUser.primaryEmailAddressId;
+
+        const primaryEmail = clerkUser.emailAddresses?.find(
+            (email) => email.id === primaryEmailId
+        );
+
+        const email = primaryEmail?.emailAddress;
+
+        console.log("Clerk user ID:", req.clerkUserId);
+        console.log("Primary email:", email);
 
         if (!email) {
             return res.status(400).json({
@@ -17,21 +26,18 @@ userController.syncUser = async (req, res) => {
                 message: "No email address found for Clerk user"
             });
         }
-
         const user = await userService.getOrCreateUser({
             clerkId: req.clerkUserId,
             email
         });
-
-        res.json({
+        return res.json({
             success: true,
             user
         });
-
     } catch (error) {
         console.error("Sync user error:", error);
 
-        res.status(500).json({
+        return res.status(500).json({
             success: false,
             message: error.message
         });
