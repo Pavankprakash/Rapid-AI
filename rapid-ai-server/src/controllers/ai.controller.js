@@ -17,14 +17,6 @@ aiController.generateArticle = async (req, res) => {
 
     try {
         const { topic, tone, length, instructions } = req.body;
-
-        // Basic validation
-        // if (!userId || !topic) {
-        //     return res.status(400).json({
-        //         success: false,
-        //         message: "userId and topic are required."
-        //     });
-        // }
         const user = await userService.getByClerkId(req.clerkUserId);
 
         if (!user) {

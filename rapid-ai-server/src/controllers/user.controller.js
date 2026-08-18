@@ -2,19 +2,15 @@ import { clerkClient } from "@clerk/express";
 import userService from "../services/user.service.js";
 
 const userController = {};
-
 userController.syncUser = async (req, res) => {
     try {
         const clerkUser = await clerkClient.users.getUser(
             req.clerkUserId
         );
-
         const primaryEmailId = clerkUser.primaryEmailAddressId;
-
         const primaryEmail = clerkUser.emailAddresses?.find(
             (email) => email.id === primaryEmailId
         );
-
         const email = primaryEmail?.emailAddress;
 
         console.log("Clerk user ID:", req.clerkUserId);
