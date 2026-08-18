@@ -55,7 +55,7 @@ function FAQ(){
                                 </span>
                                 <span>
                                     {openId === faq.id
-                                        ? "-"
+                                        ? " "
                                         : "+"}
                                 </span>
                             </button>
